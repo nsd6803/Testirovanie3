@@ -48,7 +48,7 @@ class UnitConverterApp(QMainWindow):
                 result = SIConverter.kilograms_to_pounds(value)
                 self.output_label.setText(f"{value} kilograms is equal to {result:.2f} pounds")
         except ValueError:
-            self.output_label.setText("Invalid input. Please enter a valid number.")
+            self.output_label.setText("Invalid input, Please enter a valid number.")
 
 
 if __name__ == "__main__":
