@@ -1,5 +1,6 @@
 import unittest
 
+
 class AmericanConverter:
     @classmethod
     def inch_to_arshin(cls, unit):
@@ -164,12 +165,10 @@ class AmericanConverter:
         return round(result, 1)
 
 
-
 class TestAmericanConverter(unittest.TestCase):
 
     def test_inch_to_arshin_with_letter(self):
-        result = AmericanConverter.inch_to_arshin('a')
-        self.assertEqual(result, "Вы ввели некорректное значение")
+        self.assertEqual(AmericanConverter.inch_to_arshin('a'), "Вы ввели некорректное значение")
 
     def test_inch_to_arshin_with_array(self):
         result = AmericanConverter.inch_to_arshin([123, 123])
@@ -274,5 +273,3 @@ class TestAmericanConverter(unittest.TestCase):
     def test_pound_to_batman_with_valid_input(self):
         result = AmericanConverter.pound_to_batman(100)
         self.assertEqual(result, 185.7)
-
-unittest.main()
