@@ -12,6 +12,7 @@ class JapaneseConverter:
     KIN_TO_BATMAN = 0.8
     KIN_TO_FUNT = 1.33
 
+
     @classmethod
     def syaku_meter(cls, unit):
         if not isinstance(unit, (int, float)):
