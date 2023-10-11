@@ -116,7 +116,7 @@ class TestJapanese(unittest.TestCase):
     def test_kin_batman_fail(self):
         result1 = JapaneseConverter()
 
-        self.assertEqual(result1.kin_batman("100f"), "Некорректное значение")
+        self.assertEqual(result1.kin_batman(100000000000000000000000000000000000000000000000000000000000000000), "Некорректное значение")
 
     def test_kin_funt_fail(self):
         result1 = JapaneseConverter()
