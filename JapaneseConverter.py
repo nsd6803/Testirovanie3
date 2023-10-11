@@ -101,12 +101,12 @@ class TestJapanese(unittest.TestCase):
     def test_se_vedro_fail(self):
         result1 = JapaneseConverter()
 
-        self.assertEqual(result1.se_vedro("?юю"), "Некорректное значение")
+        self.assertEqual(result1.se_vedro({"unit": 100}), "Некорректное значение")
 
     def test_se_barrel_fail(self):
         result1 = JapaneseConverter()
 
-        self.assertEqual(result1.se_barrel(".100"), "Некорректное значение")
+        self.assertEqual(result1.se_barrel([100]), "Некорректное значение")
 
     def test_kin_kg_fail(self):
         result1 = JapaneseConverter()
