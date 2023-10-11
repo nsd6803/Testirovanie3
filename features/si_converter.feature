@@ -35,8 +35,8 @@ Feature: SI Converter
     When I convert it to Arshin
     Then the result should be 1.406 Arshin
 
-  Scenario: Convert Batman to Bucket
-    Given the value is 1 Batman
+  Scenario: Convert Liter to Bucket
+    Given the value is 1 Liter
     When I convert it to Bucket
     Then the result should be 12.299 Bucket
 
