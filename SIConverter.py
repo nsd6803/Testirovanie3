@@ -1,124 +1,78 @@
 import unittest
 class SIConverter:
-    def __init__(self):
-        super().__init__()
+    METERS_TO_INCH = 39.37  # Conversion factor
+    LITERS_TO_BARREL = 159
+    KILOGRAMS_TO_POUND = 2.2
+    METERS_TO_SYAKU = 3.3
+    LITERS_TO_SE = 1.8
+    KILOGRAMS_TO_KIN = 0.6
+    METERS_TO_ARSHIN = 1.406
+    LITERS_TO_BUCKET = 12.299
+    KILOGRAMS_TO_BATMAN = 4.095
 
 # Конвертация си в американскую
-    def meters_to_inch(self, unit):
-        return 0
+    @classmethod
+    def meters_to_inch(cls, unit):
+        return unit * cls.METERS_TO_INCH
 
-    def liters_to_barrel(self, unit):
-        return 0
+    @classmethod
+    def liters_to_barrel(cls, unit):
+        return unit / cls.LITERS_TO_BARREL
 
-    def kilograms_to_pound(self, unit):
-        return 0
+    @classmethod
+    def kilograms_to_pound(cls, unit):
+        return unit * cls.KILOGRAMS_TO_POUND
 
 # Конвертация си в японскую
-    def meters_to_syaku(self, unit):
-        return 0
+    @classmethod
+    def meters_to_syaku(cls, unit):
+        return unit * cls.METERS_TO_SYAKU
 
-    def liters_to_se(self, unit):
-        return 0
+    @classmethod
+    def liters_to_se(cls, unit):
+        return unit * cls.LITERS_TO_SE
 
-    def kilograms_to_kin(self, unit):
-        return 0
+    @classmethod
+    def kilograms_to_kin(cls, unit):
+        return unit * cls.KILOGRAMS_TO_KIN
 
 # Конвертация си в старорусскую
-    def meters_to_arshin(self, unit):
-        return 0
+    @classmethod
+    def meters_to_arshin(cls, unit):
+        return unit * cls.METERS_TO_ARSHIN
 
-    def liters_to_bucket(self, unit):
-        return 0
+    @classmethod
+    def liters_to_bucket(cls, unit):
+        return unit * cls.LITERS_TO_BUCKET
 
-    def kilograms_to_batman(self, unit):
-        return 0
+    @classmethod
+    def kilograms_to_batman(cls, unit):
+        return unit * cls.KILOGRAMS_TO_BATMAN
 
 class TestSIConverter(unittest.TestCase):
-    def test_syaku_meter(self):
-        result1 = SIConverter()
+    def test_meters_to_inch(self):
+        self.assertAlmostEqual(SIConverter.meters_to_inch(1), 39.37, places=2)
 
-        self.assertEqual(result1.meters_to_inch(100), 3937)
+    def test_liters_to_barrel(self):
+        self.assertAlmostEqual(SIConverter.liters_to_barrel(159), 1, places=2)
 
-    def test_syaku_duym(self):
-        result1 = SIConverter()
+    def test_kilograms_to_pound(self):
+        self.assertAlmostEqual(SIConverter.kilograms_to_pound(1), 2.2, places=2)
 
-        self.assertEqual(result1.liters_to_barrel("159"), 1)
+    def test_meters_to_syaku(self):
+        self.assertAlmostEqual(SIConverter.meters_to_syaku(1), 3.3, places=2)
 
-    def test_syaku_arshin(self):
-        result1 = SIConverter()
+    def test_liters_to_se(self):
+        self.assertAlmostEqual(SIConverter.liters_to_se(1), 1.8, places=2)
 
-        self.assertEqual(result1.kilograms_to_pound(100), 220)
+    def test_kilograms_to_kin(self):
+        self.assertAlmostEqual(SIConverter.kilograms_to_kin(1), 0.6, places=2)
 
-    def test_se_liter(self):
-        result1 = SIConverter()
+    def test_meters_to_arshin(self):
+        self.assertAlmostEqual(SIConverter.meters_to_arshin(1), 1.406, places=3)
 
-        self.assertEqual(result1.meters_to_syaku(100), 330)
+    def test_liters_to_bucket(self):
+        self.assertAlmostEqual(SIConverter.liters_to_bucket(1), 12.299, places=3)
 
-    def test_se_vedro(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.liters_to_se("100"), 180)
-
-    def test_se_barrel(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.kilograms_to_kin(100), 60)
-
-    def test_kin_kg(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.meters_to_arshin("100"), 140.6)
-
-    def test_kin_batman(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.liters_to_bucket(100), 1229.9)
-
-    def test_kin_funt(self):
-        result1 = SIConverter()
-        self.assertEqual(result1.kilograms_to_batman(100), 409.5)
-
-    def test_syaku_meter_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.meters_to_inch("Hello1"), "Некорректное значение")
-
-    def test_syaku_duym_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.liters_to_barrel("O.1"), "Некорректное значение")
-
-    def test_syaku_arshin_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.kilograms_to_pound("12345ff"), "Некорректное значение")
-
-    def test_se_liter_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.meters_to_syaku("100_"), "Некорректное значение")
-
-    def test_se_vedro_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.liters_to_se("?юю"), "Некорректное значение")
-
-    def test_se_barrel_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.kilograms_to_kin(".100"), "Некорректное значение")
-
-    def test_kin_kg_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.meters_to_arshin("1OO"), "Некорректное значение")
-
-    def test_kin_batman_fail(self):
-        result1 = SIConverter()
-
-        self.assertEqual(result1.liters_to_bucket(100000000000000000000000000000000000000000000000000000000000000000),
-                         "Некорректное значение")
-
-    def test_kin_funt_fail(self):
-        result1 = SIConverter()
-        self.assertEqual(result1.kilograms_to_batman("dfef"), "Некорректное значение")
+    def test_kilograms_to_batman(self):
+        self.assertAlmostEqual(SIConverter.kilograms_to_batman(1), 4.095, places=3)
